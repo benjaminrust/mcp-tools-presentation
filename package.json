@@ -1,0 +1,19 @@
+{
+  "name": "mcp-tools-presentation",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Hosted MCP Tools for AI Agent Orchestration - Slidev Presentation",
+  "scripts": {
+    "dev": "slidev slides.md",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.0.0",
+    "@slidev/theme-seriph": "^1.0.0",
+    "@antfu/ni": "^1.0.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.0.0"
+  }
+} 
