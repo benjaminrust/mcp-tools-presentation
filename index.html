@@ -14,6 +14,39 @@
   <link rel="modulepreload" crossorigin href="./assets/modules/shiki-DtIgrxRx.js">
   <link rel="stylesheet" crossorigin href="./assets/modules/shiki-CozCpemh.css">
   <link rel="stylesheet" crossorigin href="./assets/index-DC0ywEdW.css">
+  
+  <!-- Debug script to help identify loading issues -->
+  <script>
+    console.log('MCP Presentation Debug: HTML loaded');
+    
+    // Check if app div exists
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('MCP Presentation Debug: DOM loaded');
+      const appDiv = document.getElementById('app');
+      if (appDiv) {
+        console.log('MCP Presentation Debug: App div found');
+        // Add a fallback message if Vue doesn't mount
+        setTimeout(function() {
+          if (appDiv.innerHTML === '') {
+            console.log('MCP Presentation Debug: App div is empty, Vue may not have mounted');
+            appDiv.innerHTML = '<div style="padding: 20px; text-align: center;"><h1>MCP Tools Presentation</h1><p>If you see this message, the Vue.js app failed to mount.</p><p>Check the browser console for errors.</p><p><a href="./test.html">Test Page</a></p></div>';
+          }
+        }, 3000);
+      } else {
+        console.error('MCP Presentation Debug: App div not found');
+      }
+    });
+    
+    // Global error handler
+    window.addEventListener('error', function(e) {
+      console.error('MCP Presentation Debug: Global error:', e.error);
+    });
+    
+    // Unhandled promise rejection handler
+    window.addEventListener('unhandledrejection', function(e) {
+      console.error('MCP Presentation Debug: Unhandled promise rejection:', e.reason);
+    });
+  </script>
 </head>
 <body>
 <div id="app"></div>
