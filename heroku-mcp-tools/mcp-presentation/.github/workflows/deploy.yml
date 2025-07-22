@@ -23,20 +23,23 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
+        run: cd mcp-presentation && npm ci
+
+      - name: Install Slidev globally
+        run: npm install -g @slidev/cli@latest
 
       - name: Build
-        run: npx slidev build slides.md --base /mcp-tools-presentation/
+        run: cd mcp-presentation && slidev build slides.md --base /mcp-tools-presentation/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: mcp-presentation/dist
 
   deploy:
     environment:
@@ -48,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
