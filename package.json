@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@slidev/cli": "^52.0.0",
-    "@slidev/theme-seriph": "^1.0.0"
+    "@slidev/theme-seriph": "^1.0.0",
+    "@antfu/ni": "^1.0.0"
   },
   "devDependencies": {
     "@slidev/cli": "^52.0.0"
